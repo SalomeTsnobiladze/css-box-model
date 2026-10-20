@@ -1,0 +1,226 @@
+    /* =========================================
+    1. RESET: ოქროს წესი (Best Practice)
+    ყველა ელემენტზე padding და border შედის
+    მითითებულ width/height-ში
+    ========================================= */
+*, *::before, *::after {
+    box-sizing: border-box; /* ოქროს წესი: ზღუდავს ელემენტის ზომის გაბერვას padding-ისა და border-ის გამო */
+}
+
+html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      background-image: url(image/green2.jpg);
+      background-size: cover;        /* სურათი ფარავს მთელ ეკრანს */
+      background-position: center;   /* ცენტრში ასწორებს */
+      background-repeat: no-repeat;  /* არ მეორდება */
+      background-attachment: fixed;  /* სქროლისას ფონი უძრავია */
+      background-color: #2f5d2a;     /* სარეზერვო ფერი, სანამ სურათი ჩაიტვირთება */
+    }
+
+    /* =========================================
+        2. ჰედერი
+        ========================================= */
+    .header-box{
+        background-color: rgb(red green blue / alpha); ;
+        max-width: 1000px;
+        margin: 0 auto 50px auto;
+        padding: 30px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+   
+   .header-box h1, .header-box p{
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 10px 0;
+        
+    }
+
+    /* =========================================
+    3. ნაწილი 2: Box Model-ის 4 შრე
+    ========================================= */
+    .box-section {
+    background-color:  rgb(red green blue / alpha);
+    max-width: 1000px;
+    margin: 0 auto 30px auto;                   
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    }
+
+       /* სიტყვების გასქელება (Content, Padding...) */
+    .layer-title {
+        font-weight: bold;
+        font-family: "Noto Sans Georgian", "Sylfaen", sans-serif;
+        font-size: 20px;
+        font-weight: 900;
+        letter-spacing: 0.1px;
+        line-height: 1.3;
+        margin: 0 0 10px 0;
+        align-items: center;
+    }
+    
+
+    .margin-box {
+        max-width: 450px;
+        height: 450px;
+        background-color: blueviolet;
+        padding: 15px;
+        color:white;
+        margin: 40px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .border-box{
+        background-color: #c9a23a;
+        padding: 15px;
+        color: white;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .padding-box{
+        background-color: #2e8b6a;
+        padding: 15px;
+        color: white;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .content-box{
+        background-color: #b8dcf0;
+        padding: 15px;
+        color: white;
+        flex: 1;
+    }
+
+    ul li, p {
+    font-size: 20px;    
+    line-height: 1.2;  
+}
+     /* =========================================
+    4. ნაწილი 3: დიდი დუელი (ბარათები)
+    ========================================= */
+   .duel-section{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgb(red green blue / alpha); 
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+   }
+           /* ბარათის გვერდიგვერდ ჩასაწყობა ვიყენებთ flexbox-ს */
+    .card-container{
+        display: flex;
+        gap: 150px;
+        justify-content: center;
+        margin-top: 15px;
+    }
+        /* საერთო სტილი ორივე ბარათის */
+    .card {
+        width: 300px; /* მოთხოვნილი სიგანე */
+        padding: 20px;
+        border: 5px solid #333;
+        color: white;
+        border-radius: 8px;
+    }
+        /* ბარათი A: content-box (ზომა იზრდება: 300 + padding + border = 350px) */
+    .content-box-card {
+        background-color: #d9534f; /* წითლად ვნიშნავთ, რომ იბერება და პრობლემურია */
+        box-sizing: content-box;   /* ბრაუზერის სტანდარტული ქცევა */
+    }
+
+       /* ბარათი B: border-box (ზომა რჩება 300px) */
+   .border-box-card {
+        background-color: #5cb85c; /* მწვანედ ვნიშნავთ, რომ იდეალურია */
+        box-sizing: border-box;    /* ზომა არ იცვლება და რჩება 300px */
+    }    
+
+
+    /* =========================================
+    5. ნაწილი 4: რატომ ტყდება განლაგება?
+    ========================================= */
+    .layout-section{
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 50px;
+        background-color:rgb(red green blue / alpha); 
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    /* თითოეული ქეისიის (მაგალითის) ბლოკი */
+    .case-wrapper{
+        margin-top: 25px;
+    }
+    /* კონტეინერი, სადაც სვეტები დევს */
+    .demo-container {
+        width: 100%;
+        background-color: #e0e0e0;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 0px;
+    }
+
+    /* საერთო სტილი ორივე ტიპის სვეტისთვის */
+    .col {
+        width: 50%;
+        padding: 20px;
+        border: 4px solid #333;
+        display: inline-block; /* სვეტები გვერდიგვერდ რომ დაჯდნენ */
+        vertical-align: top;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    /* ქეისი 1: Content-Box (გაფუჭებული განლაგება) */
+    .col-content-box {
+        box-sizing: content-box;
+        background-color: #ff8a80; /* წითელი ტონი, პრობლემის საჩვენებლად */
+
+    }
+
+    /* ქეისი 2: Border-Box (სწორი განლაგება) */
+    .col-border-box {
+        box-sizing: border-box;
+        background-color: #a5d6a7; /* მწვანე ტონი, სწორი შედეგის საჩვენებლად */
+    }
+
+    /* =========================================
+        6. ნაწილი 5: დასკვნა
+        ========================================= */
+    .best-practice-section {
+        max-width: 1000px;
+        margin: 0 auto 50px auto;
+        padding: 30px;
+        background-color: rgb(red green blue / alpha);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+
+    /* კოდის ბლოკის სტილი (შავი ფონი) */
+    .code-block {
+        background-color: #272822;
+        color: #f8f8f2;
+        padding: 15px;
+        border-radius: 8px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 16px;
+        text-align: left;
+        display: inline-block;
+        margin: 15px 0;
+    }
+
+    /* დასკვნის ტექსტი */
+    .summary-text {
+        margin-top: 15px;
+        line-height: 1.6;
+    }

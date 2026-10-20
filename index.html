@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header-box">
+        <h1>CSS Box Model როგორ მუშაობს ზომები?</h1>
+        <p>მოდი, მარტივად ვნახოთ, როგორ აწყობს ბრაუზერი ვებგვერდის ელემენტებს.</p>
+    </header>
+
+
+      <!--ნაწილი 2-->
+    <main class="content-container">
+        <section class="box-section">
+            <h2> Box Model-ის  4 შრე (როგორც საჩუქრის ყუთი )</h2>
+            <p>წარმოიდგინე, რომ თითოეული ელემენტი არის საჩუქრის ყუთი, რომელიც შედგება 4 ფენისგან:</p>
+
+            
+        <ul class="layers-lis">
+            <li class="li-1">
+                <span class="layer-title">Content (შიგთავსი):</span>
+                თავად ტექსტი ან სურათი, რომელიც ყუთის შიგნით დევს.
+            </li>
+
+            <li class="li-2">
+                <span class="layer-title">Padding (შიდა სივრცე):</span>
+                ჰაეროვანი ადგილი შიგთავსსა და ყუთის კედლებს შორის.
+            </li>
+
+            <li class="li-3">
+                <span class="layer-title">Border (ჩარჩო):</span>
+                თავად ყუთის მყარი კედელი / გარე საზღვარი.
+            </li>
+
+            <li class="li-4">
+                <span class="layer-title">Margin (გარე მანძილი):</span>
+                თავისუფალი სივრცე ამ ყუთსა და სხვა მეზობელ ყუთებს შორის.
+            </li>
+        </ul>
+
+            <!-- ყუთების სტრუქტურა -->
+        <div class="box-model">
+            <div class="margin-box">
+                Margin (გარე მანძილი)
+                <div class="border-box">
+                    Border (ჩარჩო)
+                    <div class="padding-box">
+                        Padding (შიდა სივრცე)
+                        <div class="content-box">
+                            Content (შიგთავსი)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ </section>
+
+          <!-- ნაწილი 3 -->
+
+        <section class="duel-section">
+            <h2 class="layer-title"> დიდი დუელი: Content-Box vs Border-Box </h2>
+            <p>მიუხედავად იმისა, რომ ორივე ბარათს კოდში უწერია ზუსტად <strong>300px</strong> სიგანე, ნახეთ რა მოსდის მათ რეალურ ზომას ეკრანზე:</p>
+
+           <!-- კონტეინერი ბარათების გვერდიგვერდ დასმა -->
+            <div class="card-container">
+
+            <!-- ბარათი A-->
+             <div class="card content-box-card">
+                <h3 class="Content-Box"></h3>
+                <p><strong>რეალური სიგანე: 350px</strong></p>
+            <p>ბრაუზერი უმატებს Padding-სა და Border-ს მითითებულ სიგანეს (300 + 20×2 + 5×2).</p>
+        </div>
+
+            <!-- ბარათი B: -->
+        <div class="card border-box-card">
+            <h3>Border-Box</h3>
+            <p><strong>რეალური სიგანე: 300px</strong></p>
+            <p>Padding და Border „იფუთება“ შიგნითვე, ამიტომ ზომა ზუსტად 300px რჩება.</p>
+        </div>
+    </div>
+</section>
+
+           <!--ნაწილი 4-->
+        <section class="layout-section">
+            <h2 class="layout-title">რატომ ტყდება განლაგება?</h2>
+            <p>წარმოიდგინე, რომ გინდა გვერდი ორ თანაბარ 50%-იან სვეტად გაყო:</p>
+
+            <!-- ქეისი 1  Content-Box-->
+             <div class="case-wrapper">
+                <h3>ქეისი 1: Content-Box (გაფუჭებული განლაგება ❌)</h3>
+        <div class="demo-container">
+            <div class="col col-content-box">სვეტი 1</div>
+            <div class="col col-content-box">სვეტი 2</div>
+        </div>
+    </div>
+
+         <!-- ქეისი 2: Border-Box -->
+    <div class="case-wrapper">
+        <h3>ქეისი 2: Border-Box (სწორი განლაგება ✅)</h3>
+        <div class="demo-container">
+            <div class="col col-border-box">სვეტი 1</div>
+            <div class="col col-border-box">სვეტი 2</div>
+        </div>
+    </div>
+</section>
+
+    <!-- ნაწილი 5 — შეჯამება და ოქროს წესი -->
+    <section class="best-practice-section">
+        <h2 class="layer-title">ოქროს წესი (Best Practice)</h2>
+        
+        <p>იმისათვის, რომ თავიდან აირიდო გაფუჭებული განლაგება და ზომების მუდმივი თვლა, პროექტი ყოველთვის დაიწყე ამ CSS წესით:</p>
+
+        <!-- კოდის გამოსაჩენი შავი ბლოკი -->
+        <pre class="code-block"><code>*, *::before, *::after {
+        box-sizing: border-box;
+    }</code></pre>
+
+        <p class="summary-text">
+            <strong>დასკვნა:</strong> ეს წესი უზრუნველყოფს, რომ ყველა ელემენტმა ზუსტად შეინარჩუნოს შენ მიერ მითითებული სიგანე და სიმაღლე (`width` / `height`), მიუხედავად იმისა, თუ რამდენ `padding`-ს ან `border`-ს დაამატებ.
+        </p>
+</section>
+</main>
+    
+</body>
+</html>
